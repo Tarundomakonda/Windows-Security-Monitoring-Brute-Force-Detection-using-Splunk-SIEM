@@ -37,7 +37,7 @@ Configured Splunk to ingest the following logs:
 
 These logs provide visibility into authentication activity and system behavior.
 
-![Log Ingestion](screenshots/Screenshot__81_.png)
+![Log Collection](screenshots/basic_logs.png)
 *Figure 1 — Splunk ingesting Windows Security Logs (host: DOMAKONDA-RK)*
 
 ---
@@ -62,7 +62,7 @@ Multiple incorrect password attempts were entered to generate failed login event
 index=* EventCode=4625
 ```
 
-![Failed Login Detection](screenshots/Screenshot__84_.png)
+![Failed Login Detection](screenshots/failed_logs.png)
 *Figure 2 — EventCode 4625 events detected across all time (6 events found)*
 
 ---
@@ -73,7 +73,7 @@ index=* EventCode=4625
 index=* EventCode=4625 earliest=-10m
 ```
 
-![Real-Time Detection](screenshots/Screenshot__85_.png)
+![Real-Time Detection](screenshots/realtime_detection.png)
 *Figure 3 — Real-time EventCode 4625 detection within last 10 minutes (5 events)*
 
 ---
@@ -86,10 +86,10 @@ index=* EventCode=4625 earliest=-10m
 | where count > 3
 ```
 
-![Brute Force Correlation Table](screenshots/Screenshot__86_.png)
+![Brute Force Correlation](screenshots/bruteforce_detection.png)
 *Figure 4 — Brute Force Correlation: Desktop (5) and fakeuser (5) flagged on DOMAKONDA-RK*
 
-![Brute Force Visualization](screenshots/Screenshot__87_.png)
+![Brute Force Visualization](screenshots/visualization_chart.png)
 *Figure 5 — Column chart showing brute force count per Account_Name*
 
 ---
@@ -112,10 +112,10 @@ Configured an alert in Splunk with the following settings:
 | **Severity** | High |
 | **Action** | Add to Triggered Alerts |
 
-![Alert Settings](screenshots/alert.png)
+![Alert Setup](screenshots/alert_setup.png)
 *Figure 6 — Save As Alert: Title, Description, Alert Type, Trigger Conditions*
 
-![Alert Conditions](screenshots/conditions.png)
+![Trigger Conditions](screenshots/trigger_conditions.png)
 *Figure 7 — Alert: Trigger window (10 min), Throttle enabled, Severity: High*
 
 ---
@@ -145,7 +145,7 @@ index=* EventCode=4624
 | stats count
 ```
 
-![Security Monitoring Dashboard](screenshots/Screenshot__93_.png)
+![Security Monitoring Dashboard](screenshots/dashboard.png)
 *Figure 8 — Security Monitoring Dashboard showing failed login spike at ~7:45 AM on Apr 25, 2026*
 
 ---
@@ -188,9 +188,3 @@ index=* EventCode=4624
 ## 📌 Conclusion
 
 This project demonstrates hands-on experience with Splunk SIEM for monitoring Windows logs, detecting brute-force attacks, and implementing real-world SOC workflows including alerting and dashboard-based analysis.
-
----
-
-## 💼 Resume Description
-
-> Built an end-to-end SIEM lab using Splunk to ingest Windows logs, simulate brute-force attacks, detect suspicious activity using SPL queries (EventCode 4625), configure high-severity real-time alerts with throttling, and design dashboards for real-time security monitoring and incident response.
