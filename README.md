@@ -18,6 +18,9 @@ To design and implement a SIEM-based monitoring system using Splunk to:
 - Create alerts and dashboards for real-time monitoring
 
 ---
+## 🔎 Attack Scenario
+
+An attacker attempted multiple failed logins within a short time frame, indicating a potential brute-force attack. Using Splunk SIEM, these events were monitored, detected, and analyzed in real time.
 
 ## 🧰 Tools & Technologies
 
@@ -144,6 +147,7 @@ index=* EventCode=4625
 index=* EventCode=4624
 | stats count
 ```
+The dashboard provides a centralized view of login activity, showing failed login trends, targeted accounts, and successful logins, helping analysts quickly identify suspicious behavior.
 
 ![Security Monitoring Dashboard](screenshots/dashboard.png)
 *Figure 8 — Security Monitoring Dashboard showing failed login spike at ~7:45 AM on Apr 25, 2026*
@@ -187,4 +191,4 @@ index=* EventCode=4624
 
 ## 📌 Conclusion
 
-This project demonstrates hands-on experience with Splunk SIEM for monitoring Windows logs, detecting brute-force attacks, and implementing real-world SOC workflows including alerting and dashboard-based analysis.
+This project demonstrates practical SOC-level experience in detecting brute-force attacks using Splunk SIEM, including log ingestion, detection, alerting, dashboard visualization, and basic incident response.
